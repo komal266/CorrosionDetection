@@ -1,0 +1,29 @@
+{% extends 'layouts/admin.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="text-center">{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row my-5">
+    <div class="col-md-4">
+        <div class="text-center">
+            <h1 class="text-danger"><i class='bx bx-user-circle'></i></h1>
+            <h4>Total users are {{ users }}</h4>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="text-center">
+            <h1 class="text-info"><i class='bx bx-search-alt'></i></h1>
+            <h4>Total scrapped is {{ scarped }}</h4>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="text-center">
+            <h1 class="text-success"><i class='bx bx-image-alt'></i></h1>
+            <h4>Total files uploaded is {{ files }}</h4>
+        </div>
+    </div>
+</div>
+{% endblock %}

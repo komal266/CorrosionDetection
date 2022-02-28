@@ -1,0 +1,56 @@
+{% extends 'layouts/admin.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col-md-4">
+        <form action="{% url 'su-predict-single' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" class="form-control form-control-file">
+            </div>
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary"><i class="bx bx-save"></i> Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-8">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Score</th>
+                        <th>Predict</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                    <tr>
+                        <td><img src="{{ i.og_image.url }}" alt="" height="100" width="100"></td>
+                        <td>{{ i.score }}</td>
+                        <td>
+                            <a href="{% url 'su-predict-single-file' i.id %}">Predict</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col-md-12">
+        <div class="alert alert-info">
+            Note: If score is lower, the corrision or rust is lower and vice-versa.
+        </div>
+    </div>
+</div>
+{% endblock %}

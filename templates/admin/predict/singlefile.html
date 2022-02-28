@@ -1,0 +1,22 @@
+{% extends 'layouts/admin.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row my-3">
+    <div class="col-md-4">
+        <img src="{{ data.og_image.url }}" alt="" class="w-100">
+    </div>
+    <div class="col-md-8">
+        <p class="lead">
+            The rust or corrision score for this image is <span class="text-info"><strong>{{ data.score }}</strong></span>
+        </p>
+        <div class="alert alert-info">
+            Note: If score is lower, the corrision or rust is lower and vice-versa.
+        </div>
+    </div>
+</div>
+{% endblock %}

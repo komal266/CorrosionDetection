@@ -1,0 +1,31 @@
+{% extends 'layouts/user.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row">
+    {% for i in data %}
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <img src="/{{ i.image }}" alt="" width="100%">
+                <p class="text-center lead">
+                    Score: {{ i.score }}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row my-3">
+    <div class="col-md-12">
+        <div class="alert alert-info">
+            Note: If score is lower, the corrision or rust is lower and vice-versa.
+        </div>
+    </div>
+</div>
+{% endblock %}

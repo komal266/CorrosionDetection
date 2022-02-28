@@ -1,0 +1,29 @@
+{% extends 'layouts/user.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Directory</th>
+                    <th>Predict</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in scrapped %}
+                <tr>
+                    <td><i class="bx bx-folder text-warning"></i> <i class='bx bx-chevron-right'></i> {{ i.data }}</td>
+                    <td><a href="{% url 'user-predict-scrapped' i.id %}">Predict</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'layouts/account.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="text-light">{{ PROJECT_NAME }}</h1>
+        <p class="bg-light lead p-5">
+            Visual inspection is a vital component of asset management that stands to benefit from automation. Using artificial intelligence to assist inspections can increase safety, reduce access costs, provide objective classification, and integrate with digital asset management systems.
+        </p>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2>{{ title }}</h2>
+                <form action="{% url 'account-login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" placeholder="Enter username" autocomplete="off" required id="username" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" placeholder="Enter password" autocomplete="off" required id="password" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <button type="submit" class="btn btn-primary">Login <i class='bx bx-right-arrow-alt'></i></button>
+                    </div>
+                    <div class="form-group mb-3">
+                        <p>
+                            Don't have an account? <a href="{% url 'account-register' %}">Register</a> now.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

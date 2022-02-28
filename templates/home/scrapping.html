@@ -1,0 +1,48 @@
+{% extends 'layouts/user.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{ title }}</h2>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-4 mb-2">
+        <form action="{% url 'user-web' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group mb-2">
+                <label for="search">Search</label>
+                <input type="text" name="search" placeholder="Ex: steel plate" required id="search" class="form-control">
+            </div>
+            <div class="form-group mb-2">
+                <button type="submit" class="btn btn-primary"><i class="bx bx-search"></i> Search & Scrap</button>
+            </div>
+        </form>
+        <!-- <p>
+            <strong>
+                To scrap images from web, open command prompt or terminal in the project's directory and type<br>
+                <div class="pb-3">
+                    <code>
+                        python scrapper.py
+                    </code>
+                </div>
+                Then it will ask to enter the term.<br>
+                Place the term (Ex. Steel Corrosion or Steel) and hit the enter button.
+            </strong>
+        </p> -->
+    </div>
+    <div class="offset-md-2 col-md-6">
+        <div class="row">
+            <div class="col-md-12 mb-2">
+                <p class="lead">
+                    Once the scrapping is completed,<br>go-to <a href="{% url 'user-scrapped' %}">scrapped images directory list</a> and start corrision test.
+                </p>
+                <div class="alert alert-danger">
+                    If you get "This version of ChromeDriver only supports Chrome version .." error, simply go to this <a href="https://chromedriver.chromium.org/downloads">link</a> and download the appropriate version of chrome driver.
+                    After downloading, extract it and replace the .exe file in project root folder.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
